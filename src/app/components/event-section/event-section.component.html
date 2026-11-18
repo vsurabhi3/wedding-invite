@@ -9,10 +9,7 @@
   [attr.aria-labelledby]="event.id + '-title'"
 >
   @if (countdown; as countdownValue) {
-    <app-countdown-timer
-      [countdown]="countdownValue"
-      [pinned]="countdownPinned"
-    />
+    <app-countdown-timer [countdown]="countdownValue" [pinned]="countdownPinned" />
   }
 
   <article class="ornate-surface event-surface">
@@ -68,7 +65,9 @@
             <div
               class="event-schedule__item"
               [class.event-schedule__item--baraat]="highlight.label === 'Baraat'"
-              [class.event-schedule__item--jaimaal]="highlight.label === 'Jaimaal & Reception'"
+              [class.event-schedule__item--jaimaal]="
+                highlight.label === 'Jaimaal' || highlight.label === 'Dinner'
+              "
             >
               <span class="event-schedule__label">{{ highlight.label }}</span>
               <strong class="event-schedule__time">{{ highlight.time }}</strong>

@@ -23,6 +23,7 @@ interface RuntimeFeatureFlags {
   showFamilyInvitation: boolean;
   showCountdownTimer: boolean;
   showNandimukh: boolean;
+  showMehndi: boolean;
   showEngagementSangeet: boolean;
   showFlowerHaldi: boolean;
   showWeddingDay: boolean;
@@ -75,6 +76,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   protected readonly weddingEvents = weddingEvents;
   private readonly eventFeatureFlags: Record<WeddingEventId, keyof RuntimeFeatureFlags> = {
     nandimukh: 'showNandimukh',
+    mehndi: 'showMehndi',
     'engagement-sangeet': 'showEngagementSangeet',
     'flower-haldi': 'showFlowerHaldi',
     'wedding-day': 'showWeddingDay',
@@ -84,6 +86,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     showFamilyInvitation: true,
     showCountdownTimer: true,
     showNandimukh: true,
+    showMehndi: true,
     showEngagementSangeet: true,
     showFlowerHaldi: true,
     showWeddingDay: true,
@@ -106,7 +109,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   protected readonly prefersReducedMotion = signal(false);
   protected readonly shareFeedback = signal('');
   protected readonly currentSectionId = this.navigation.currentSection;
-  protected readonly weddingCountdownTargetIso = '2026-12-02T12:00:00+05:30';
+  protected readonly weddingCountdownTargetIso = '2026-12-02T15:00:00+05:30';
   protected readonly weddingCountdown = computed(() => {
     const targetTime = new Date(this.weddingCountdownTargetIso).getTime();
     const remainingMilliseconds = Math.max(0, targetTime - this.countdownNow());
@@ -129,10 +132,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     { id: 'prologue', label: 'Prologue', shortLabel: 'Start' },
     { id: 'intro', label: 'Family Invitation', shortLabel: 'Intro' },
     { id: 'countdown', label: 'Countdown', shortLabel: 'Count' },
-    { id: 'nandimukh', label: 'Nandimukh', shortLabel: 'Nandimukh' },
+    { id: 'nandimukh', label: 'Matripujan', shortLabel: 'Matripujan' },
+    { id: 'mehndi', label: 'Mehndi', shortLabel: 'Mehndi' },
     { id: 'engagement-sangeet', label: 'Engagement & Sangeet', shortLabel: 'Sangeet' },
     { id: 'flower-haldi', label: 'Flower Haldi', shortLabel: 'Haldi' },
-    { id: 'wedding-day', label: 'Baraat, Jaimaal & Reception', shortLabel: 'Wedding' },
+    { id: 'wedding-day', label: 'Wedding Day', shortLabel: 'Wedding' },
     { id: 'outro', label: 'Outro', shortLabel: 'Outro' },
   ] as const;
   protected readonly shareUrl = computed(() => {

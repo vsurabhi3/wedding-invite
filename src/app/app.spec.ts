@@ -22,7 +22,7 @@ describe('App', () => {
     expect(compiled.textContent).toContain('With the blessings of');
   });
 
-  it('should expose the four central wedding events', () => {
-    expect(weddingEvents).toHaveLength(4);
+  it('should expose the five central wedding events', () => {
+    expect(weddingEvents).toHaveLength(5);
   });
 });

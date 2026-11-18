@@ -1,7 +1,8 @@
 import { type AssetManifestKey } from './asset-manifest';
 import { weddingVenues, type WeddingVenue } from './wedding-venues';
 
-export type WeddingEventId = 'nandimukh' | 'engagement-sangeet' | 'flower-haldi' | 'wedding-day';
+export type WeddingEventId =
+  'nandimukh' | 'mehndi' | 'engagement-sangeet' | 'flower-haldi' | 'wedding-day';
 
 export type WeddingThemeId = 'ritual' | 'sangeet' | 'haldi' | 'baraat';
 
@@ -36,22 +37,41 @@ const defaultDurationMinutes = 180;
 export const weddingEvents: readonly WeddingEvent[] = [
   {
     id: 'nandimukh',
-    title: 'Nandimukh',
+    title: 'Matripujan',
     subtitle:
-      'An intimate Bengali ritual opening the family celebrations with blessings and tradition.',
-    dateIso: '2026-11-29',
-    dateLabel: '29 November 2026',
-    localStartTime: '10:00 AM',
-    startTime24h: '10:00',
+      'A heartfelt family ritual beginning the wedding celebrations with blessings and gratitude.',
+    dateIso: '2026-11-27',
+    dateLabel: '27 November 2026',
+    localStartTime: '2:00 PM',
+    startTime24h: '14:00',
     timezone: 'Asia/Kolkata',
-    venueId: weddingVenues.sarkarResidency.id,
-    venueDisplayName: weddingVenues.sarkarResidency.displayName,
-    mapUrl: weddingVenues.sarkarResidency.mapsUrl,
+    venueId: weddingVenues.customCelebrationVenue.id,
+    venueDisplayName: weddingVenues.customCelebrationVenue.displayName,
+    mapUrl: weddingVenues.customCelebrationVenue.mapsUrl,
     assetKey: 'nandimukh',
     themeId: 'ritual',
+    nextEventId: 'mehndi',
+    durationMinutes: defaultDurationMinutes,
+    calendarDescription: 'Matripujan ceremony for the wedding celebrations of Sachin and Surabhi.',
+  },
+  {
+    id: 'mehndi',
+    title: 'Mehndi',
+    subtitle: 'An evening of henna, music, and joyful moments with loved ones before the big day.',
+    dateIso: '2026-11-29',
+    dateLabel: '29 November 2026',
+    localStartTime: '6:00 PM',
+    startTime24h: '18:00',
+    timezone: 'Asia/Kolkata',
+    venueId: weddingVenues.customCelebrationVenue.id,
+    venueDisplayName: weddingVenues.customCelebrationVenue.displayName,
+    mapUrl: weddingVenues.customCelebrationVenue.mapsUrl,
+    assetKey: 'flowerHaldi',
+    themeId: 'haldi',
+    previousEventId: 'nandimukh',
     nextEventId: 'engagement-sangeet',
     durationMinutes: defaultDurationMinutes,
-    calendarDescription: 'Nandimukh ceremony for the wedding celebrations of Sachin and Surabhi.',
+    calendarDescription: 'Mehndi celebration for Sachin and Surabhi.',
   },
   {
     id: 'engagement-sangeet',
@@ -68,7 +88,7 @@ export const weddingEvents: readonly WeddingEvent[] = [
     mapUrl: weddingVenues.virasatHotel.mapsUrl,
     assetKey: 'engagementSangeet',
     themeId: 'sangeet',
-    previousEventId: 'nandimukh',
+    previousEventId: 'mehndi',
     nextEventId: 'flower-haldi',
     durationMinutes: defaultDurationMinutes,
     calendarDescription: 'Engagement and sangeet celebration for Sachin and Surabhi.',
@@ -94,13 +114,12 @@ export const weddingEvents: readonly WeddingEvent[] = [
   },
   {
     id: 'wedding-day',
-    title: 'Baraat, Jaimaal & Reception',
-    subtitle:
-      'The wedding day gathers grandeur, colour, and celebration in one seamless gathering at a shared venue.',
+    title: 'Wedding Day',
+    subtitle: 'A grand wedding celebration with the two key moments of Jaimaal and Dinner.',
     dateIso: '2026-12-02',
     dateLabel: '2 December 2026',
-    localStartTime: '12:00 PM onwards',
-    startTime24h: '12:00',
+    localStartTime: '3:00 PM onwards',
+    startTime24h: '15:00',
     timezone: 'Asia/Kolkata',
     venueId: weddingVenues.chaddhaGarden.id,
     venueDisplayName: weddingVenues.chaddhaGarden.displayName,
@@ -108,12 +127,12 @@ export const weddingEvents: readonly WeddingEvent[] = [
     assetKey: 'jaimaalReception',
     themeId: 'baraat',
     scheduleHighlights: [
-      { label: 'Baraat', time: '12:00 PM' },
-      { label: 'Jaimaal & Reception', time: '4:00 PM' },
+      { label: 'Jaimaal', time: '3:00 PM' },
+      { label: 'Dinner', time: '7:00 PM' },
     ],
     previousEventId: 'flower-haldi',
     durationMinutes: 480,
     calendarDescription:
-      'Wedding day celebration featuring Baraat, Jaimaal, and Reception for Sachin and Surabhi.',
+      'Wedding day celebration featuring Jaimaal and Dinner for Sachin and Surabhi.',
   },
 ] as const;
