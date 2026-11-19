@@ -66,7 +66,7 @@ export const weddingEvents: readonly WeddingEvent[] = [
     venueId: weddingVenues.customCelebrationVenue.id,
     venueDisplayName: weddingVenues.customCelebrationVenue.displayName,
     mapUrl: weddingVenues.customCelebrationVenue.mapsUrl,
-    assetKey: 'flowerHaldi',
+    assetKey: 'mehndi',
     themeId: 'haldi',
     previousEventId: 'nandimukh',
     nextEventId: 'engagement-sangeet',

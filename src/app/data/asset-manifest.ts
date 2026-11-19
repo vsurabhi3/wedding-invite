@@ -2,6 +2,7 @@ export type AssetManifestKey =
   | 'ganeshBlessing'
   | 'coupleIntroduction'
   | 'nandimukh'
+  | 'mehndi'
   | 'engagementSangeet'
   | 'flowerHaldi'
   | 'baraat'
@@ -39,6 +40,12 @@ export const assetManifest: Record<AssetManifestKey, AssetManifestEntry | null> 
     alt: 'A ceremonial vessel decorated with flowers and offerings for the Nandimukh ritual.',
     role: 'Primary image for the Nandimukh section.',
     focalPoint: 'center 64%',
+  },
+  mehndi: {
+    path: 'assets/Mehndi.jpeg',
+    alt: 'A bride celebrating Mehndi with henna-covered hands and a joyful smile.',
+    role: 'Primary image for the Mehndi section.',
+    focalPoint: 'center center',
   },
   engagementSangeet: {
     path: 'assets/Engagement.png',

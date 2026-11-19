@@ -23,6 +23,6 @@ export const weddingVenues: Record<WeddingVenue['id'], WeddingVenue> = {
   customCelebrationVenue: {
     id: 'customCelebrationVenue',
     displayName: 'Residence',
-    mapsUrl: 'https://maps.app.goo.gl/ykHd3N538t9HeJXv8',
+    mapsUrl: 'https://maps.app.goo.gl/QYtaoT5ZKBVXp51GA',
   },
 };
